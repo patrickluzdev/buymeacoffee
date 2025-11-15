@@ -1,4 +1,4 @@
-import type { Product } from '~types/product';
+import type { Product } from '~/app/types/product';
 
 export class ProductService {
     private static instance: ProductService | null = null;

@@ -1,5 +1,5 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago';
-import type { PreferenceData, PaymentPreferenceResponse } from '~types/mercadopago';
+import type { PreferenceData, PaymentPreferenceResponse } from '~/app/types/mercadopago';
 
 export class MercadoPagoGateway {
     private static instance: MercadoPagoGateway | null = null;

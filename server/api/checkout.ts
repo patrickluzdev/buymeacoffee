@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { MercadoPagoGateway } from "~server/gateways/mercadopago";
-import { ProductService } from "~server/services/product.service";
-import type { PreferenceData } from "~types/mercadopago";
+import { MercadoPagoGateway } from "~/server/utils/gateways/mercadopago";
+import { ProductService } from "~/server/utils/services/product.service";
+import type { PreferenceData } from "~/app/types/mercadopago";
 
 const checkoutSchema = z.object({
     productId: z.string().catch('coffee'),

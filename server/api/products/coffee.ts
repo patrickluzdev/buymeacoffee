@@ -1,4 +1,4 @@
-import { ProductService } from '~server/services/product.service';
+import { ProductService } from '~/server/utils/services/product.service';
 
 export default defineEventHandler(() => {
     const productService = ProductService.getInstance();

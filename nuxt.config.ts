@@ -12,10 +12,8 @@ export default defineNuxtConfig({
     ],
   },
   alias: {
-    '~types': fileURLToPath(new URL('./types', import.meta.url)),
-    '~server': fileURLToPath(new URL('./server', import.meta.url)),
-    '~components': fileURLToPath(new URL('./app/components', import.meta.url)),
-    '~assets': fileURLToPath(new URL('./app/assets', import.meta.url)),
+    '~/app': fileURLToPath(new URL('./app', import.meta.url)),
+    '~/server': fileURLToPath(new URL('./server', import.meta.url)),
   },
   runtimeConfig: {
     mercadoPagoAccessToken: process.env.MERCADOPAGO_ACCESS_TOKEN || '',
