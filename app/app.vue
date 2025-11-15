@@ -10,25 +10,15 @@
         :instagram="config.public.instagramUrl"
       />
 
-      <CoffeeSelector v-model="selectedAmount" />
-
-      <SupportButton
-        :amount="selectedAmount"
-        :price-per-coffee="config.public.coffeePrice"
-        @click="handleSupport"
-      />
+      <CoffeeSelector v-model="selectedQuantity" />
+      <SupportButton v-if="coffeeProduct" :product="coffeeProduct" :quantity="selectedQuantity" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const config = useRuntimeConfig()
-const selectedAmount = ref(1)
+const selectedQuantity = ref(1)
 
-const handleSupport = () => {
-  console.log(`Apoiando com ${selectedAmount.value} café(s)`)
-  // Aqui você pode adicionar a lógica de pagamento
-}
+const { data: coffeeProduct } = await useFetch('/api/products/coffee')
 </script>
