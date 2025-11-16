@@ -14,10 +14,21 @@ export default defineNuxtConfig({
     '~/app': fileURLToPath(new URL('./app', import.meta.url)),
     '~/server': fileURLToPath(new URL('./server', import.meta.url)),
   },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'pt-BR',
+      },
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ],
+    },
+  },
   runtimeConfig: {
     mercadoPagoAccessToken: process.env.MERCADOPAGO_ACCESS_TOKEN || '',
     public: {
       baseUrl: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
+      profileName: process.env.NUXT_PUBLIC_PROFILE_NAME || 'Patrick Luz',
       githubUrl: process.env.NUXT_PUBLIC_GITHUB_URL || '',
       linkedinUrl: process.env.NUXT_PUBLIC_LINKEDIN_URL || '',
       instagramUrl: process.env.NUXT_PUBLIC_INSTAGRAM_URL || '',

@@ -2,9 +2,8 @@
   <div class="min-h-screen bg-neutral-100 flex items-center justify-center px-4 py-8">
     <div class="flex flex-col lg:flex-row gap-6 w-full max-w-[400px]">
       <div class="bg-white rounded-2xl py-8 px-8 shadow-md border border-neutral-200 flex-1">
-
         <ProfileSection
-          name="Patrick Luz"
+          :name="config.public.profileName"
           profile-image="/profile.jpeg"
           :github="config.public.githubUrl"
           :linkedin="config.public.linkedinUrl"
@@ -29,38 +28,13 @@ const selectedQuantity = ref(1)
 const { data: coffeeProduct } = await useFetch('/api/products/coffee')
 
 const baseUrl = config.public.baseUrl
-const pageTitle = 'Buy Me a Coffee - Patrick Luz'
-const pageDescription = 'Apoie Patrick Luz com um café! Contribua com R$ 5,00 e ajude a manter meus projetos de desenvolvimento de software.'
+const profileName = config.public.profileName
+const pageTitle = `Buy Me a Coffee - ${profileName}`
+const pageDescription = `Apoie ${profileName} com um café! Contribua com R$ ${config.public.coffeePrice},00 e ajude a manter meus projetos de desenvolvimento de software.`
 const ogImage = `${baseUrl}/profile.jpeg`
 
 useHead({
   title: pageTitle,
-  meta: [
-    { name: 'description', content: pageDescription },
-    { name: 'keywords', content: 'buy me a coffee, apoiar desenvolvedor, doação, Patrick Luz, café, contribuição, developer support' },
-    { name: 'author', content: 'Patrick Luz' },
-
-    // Open Graph
-    { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: pageDescription },
-    { property: 'og:image', content: ogImage },
-    { property: 'og:image:secure_url', content: ogImage },
-    { property: 'og:image:type', content: 'image/jpeg' },
-    { property: 'og:image:width', content: '400' },
-    { property: 'og:image:height', content: '400' },
-    { property: 'og:image:alt', content: 'Patrick Luz - Desenvolvedor de Software' },
-    { property: 'og:url', content: baseUrl },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:locale', content: 'pt_BR' },
-    { property: 'og:site_name', content: 'Buy Me a Coffee' },
-
-    // Twitter Card
-    { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: pageTitle },
-    { name: 'twitter:description', content: pageDescription },
-    { name: 'twitter:image', content: ogImage },
-    { name: 'twitter:image:alt', content: 'Patrick Luz - Desenvolvedor de Software' },
-  ],
   link: [
     { rel: 'canonical', href: baseUrl },
   ],
@@ -70,7 +44,7 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Person',
-        name: 'Patrick Luz',
+        name: profileName,
         url: baseUrl,
         image: ogImage,
         sameAs: [
@@ -87,7 +61,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: 'Café Virtual - Apoio ao Desenvolvedor',
-        description: 'Apoie Patrick Luz com um café virtual e ajude a manter seus projetos de desenvolvimento de software.',
+        description: `Apoie ${profileName} com um café virtual e ajude a manter seus projetos de desenvolvimento de software.`,
         image: `${baseUrl}/coffee.png`,
         offers: {
           '@type': 'Offer',
@@ -99,5 +73,28 @@ useHead({
       }),
     },
   ],
+})
+
+useSeoMeta({
+  description: pageDescription,
+  keywords: 'buy me a coffee, apoiar desenvolvedor, doação, café, contribuição, developer support',
+  author: profileName,
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  ogImage,
+  ogImageSecureUrl: ogImage,
+  ogImageType: 'image/jpeg',
+  ogImageWidth: '400',
+  ogImageHeight: '400',
+  ogImageAlt: `${profileName} - Desenvolvedor de Software`,
+  ogUrl: baseUrl,
+  ogType: 'website',
+  ogLocale: 'pt_BR',
+  ogSiteName: 'Buy Me a Coffee',
+  twitterCard: 'summary',
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: ogImage,
+  twitterImageAlt: `${profileName} - Desenvolvedor de Software`,
 })
 </script>

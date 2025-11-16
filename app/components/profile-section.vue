@@ -1,9 +1,12 @@
 <template>
   <div class="text-center mb-6">
-    <img
+    <NuxtImg
       :src="profileImage"
       :alt="name"
       class="w-16 h-16 rounded-full object-cover mb-3 mx-auto border-2 border-neutral-200"
+      width="64"
+      height="64"
+      loading="eager"
     />
     <h1 class="text-xl font-semibold text-neutral-900">{{ name }}</h1>
     <SocialLinks

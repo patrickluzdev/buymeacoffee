@@ -26,33 +26,31 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 const baseUrl = config.public.baseUrl
+const profileName = config.public.profileName
 const pageTitle = 'Pagamento Pendente - Buy Me a Coffee'
 const pageDescription = 'Seu pagamento está sendo processado. Você receberá uma confirmação em breve.'
 const ogImage = `${baseUrl}/profile.jpeg`
 
 useHead({
   title: pageTitle,
-  meta: [
-    { name: 'robots', content: 'noindex, nofollow' },
-    { name: 'description', content: pageDescription },
+})
 
-    // Open Graph
-    { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: pageDescription },
-    { property: 'og:image', content: ogImage },
-    { property: 'og:image:secure_url', content: ogImage },
-    { property: 'og:image:type', content: 'image/jpeg' },
-    { property: 'og:image:width', content: '400' },
-    { property: 'og:image:height', content: '400' },
-    { property: 'og:image:alt', content: 'Patrick Luz - Desenvolvedor de Software' },
-    { property: 'og:type', content: 'website' },
-
-    // Twitter Card
-    { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: pageTitle },
-    { name: 'twitter:description', content: pageDescription },
-    { name: 'twitter:image', content: ogImage },
-    { name: 'twitter:image:alt', content: 'Patrick Luz - Desenvolvedor de Software' },
-  ],
+useSeoMeta({
+  robots: 'noindex, nofollow',
+  description: pageDescription,
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  ogImage,
+  ogImageSecureUrl: ogImage,
+  ogImageType: 'image/jpeg',
+  ogImageWidth: '400',
+  ogImageHeight: '400',
+  ogImageAlt: `${profileName} - Desenvolvedor de Software`,
+  ogType: 'website',
+  twitterCard: 'summary',
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: ogImage,
+  twitterImageAlt: `${profileName} - Desenvolvedor de Software`,
 })
 </script>

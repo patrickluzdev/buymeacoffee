@@ -36,11 +36,12 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   github?: string
   linkedin?: string
   instagram?: string
-}>()
-
-const iconSize = 24
+  iconSize?: number
+}>(), {
+  iconSize: 24
+})
 </script>
