@@ -44,16 +44,22 @@ useHead({
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageDescription },
     { property: 'og:image', content: ogImage },
+    { property: 'og:image:secure_url', content: ogImage },
+    { property: 'og:image:type', content: 'image/jpeg' },
+    { property: 'og:image:width', content: '400' },
+    { property: 'og:image:height', content: '400' },
+    { property: 'og:image:alt', content: 'Patrick Luz - Desenvolvedor de Software' },
     { property: 'og:url', content: baseUrl },
     { property: 'og:type', content: 'website' },
     { property: 'og:locale', content: 'pt_BR' },
     { property: 'og:site_name', content: 'Buy Me a Coffee' },
 
     // Twitter Card
-    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: pageTitle },
     { name: 'twitter:description', content: pageDescription },
     { name: 'twitter:image', content: ogImage },
+    { name: 'twitter:image:alt', content: 'Patrick Luz - Desenvolvedor de Software' },
   ],
   link: [
     { rel: 'canonical', href: baseUrl },
