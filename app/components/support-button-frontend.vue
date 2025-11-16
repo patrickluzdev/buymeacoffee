@@ -8,7 +8,7 @@
     >
       {{ loading ? loadingText : `Apoiar R$ ${totalPrice}` }}
     </button>
-    <div v-else id="walletBrick_container"></div>
+    <div v-else id="walletBrick_container_frontend"></div>
   </div>
 </template>
 
@@ -82,7 +82,7 @@ const renderWalletBrick = () => {
   const mp = new window.MercadoPago(config.public.mercadoPagoPublicKey)
   const bricksBuilder = mp.bricks()
 
-  bricksBuilder.create('wallet', 'walletBrick_container', {
+  bricksBuilder.create('wallet', 'walletBrick_container_frontend', {
     initialization: {
       preferenceId: preferenceId.value,
     },
