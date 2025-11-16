@@ -1,5 +1,14 @@
 {
   "name": "buymeacoffee",
+  "version": "1.0.0",
+  "description": "Projeto de teste para integração com Mercado Pago Checkout PRO",
+  "author": "Patrick Luz",
+  "license": "MIT",
+  "homepage": "https://buymeacoffee.patrickluz.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patrickluzdev/buymeacoffee"
+  },
   "type": "module",
   "private": true,
   "scripts": {

@@ -2,6 +2,10 @@
 
 Projeto desenvolvido para testar a integração com o **Mercado Pago Checkout PRO**. Inspirado no conceito "Buy Me a Coffee", permite que usuários selecionem a quantidade de cafés que desejam "comprar" e sejam redirecionados para o checkout seguro do Mercado Pago.
 
+## 🚀 Demo
+
+**[Ver projeto em produção →](https://buymeacoffee.patrickluz.dev)**
+
 ## Sobre o Projeto
 
 Este é um projeto de demonstração construído com Nuxt 4 que implementa o fluxo completo de pagamento usando o Checkout PRO do Mercado Pago. O usuário pode escolher quantos cafés deseja comprar, e ao confirmar, é redirecionado para a página de pagamento oficial do Mercado Pago.
