@@ -13,7 +13,7 @@ export class ProductService {
             description: 'Apoie com um café',
             price: config.public.coffeePrice,
             currency: 'BRL',
-            imageUrl: '/coffee.svg',
+            imageUrl: '/coffee.png',
             category: 'others'
         });
     }
