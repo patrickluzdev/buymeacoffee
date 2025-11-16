@@ -66,16 +66,14 @@ export default defineEventHandler(async (event) => {
     const mercadoPago = MercadoPagoGateway.getInstance();
     const response = await mercadoPago.createPaymentPreference(preferenceData);
 
-    if (!response.id) {
+    const redirectUrl = response.initPoint || response.sandboxInitPoint;
+
+    if (!redirectUrl) {
         throw createError({
             statusCode: 500,
-            message: 'Preference ID not available'
+            message: 'Payment redirect URL not available'
         });
     }
 
-    return {
-        preferenceId: response.id,
-        initPoint: response.initPoint,
-        sandboxInitPoint: response.sandboxInitPoint
-    };
+    return sendRedirect(event, redirectUrl, 302);
 })
